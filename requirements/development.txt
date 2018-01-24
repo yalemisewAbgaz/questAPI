@@ -1,0 +1,7 @@
+-r base.txt
+django-debug-toolbar>=1.8
+Werkzeug>=0.12.2
+SPARQLWrapper==1.8.0
+rdflib==4.2.2
+rdflib-jsonld==0.4.0
+requests

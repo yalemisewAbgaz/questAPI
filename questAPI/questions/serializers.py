@@ -9,3 +9,10 @@ class QuestionlistSerializer(serializers.ModelSerializer):
         model = Questionlist
         fields = ('id', 'subject','predicate','object', 'date_created', 'date_modified')
         read_only_fields = ('date_created', 'date_modified')
+
+class questSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        fields = ( 'subject','predicate','object')
