@@ -1,18 +1,22 @@
 from rest_framework import generics
-from .serializers import QuestionlistSerializer, questSerializer
+from .serializers import QuestionlistSerializer
 from .models import Questionlist
-from .models import answers
 from SPARQLWrapper import SPARQLWrapper, JSON
-from django.http import HttpResponseRedirect, HttpResponse
-from django.template import loader
-from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
-import requests
 
+from django.shortcuts import render
+from django.views import generic
+from django.http import HttpResponse, JsonResponse
+from rest_framework.decorators import api_view
+
+class QuestionnairePage(generic.TemplateView):
+    template_name = "questionnaire.html"
 
 class CreateView(generics.ListCreateAPIView):
+
     """This class defines the create behavior of our rest api."""
+    template_name = "questionnaire.html"
     queryset = Questionlist.objects.all()
     serializer_class = QuestionlistSerializer
 
@@ -21,61 +25,70 @@ class CreateView(generics.ListCreateAPIView):
         serializer.save()
 class DetailsView(generics.RetrieveUpdateDestroyAPIView):
     """This class handles the http GET, PUT and DELETE requests."""
+    template_name = "questionnaire.html"
 
     queryset = Questionlist.objects.all()
     serializer_class = QuestionlistSerializer
 
-class QuestView(APIView):
+class QuestionnaireView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/questionnaire/query")
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
         sparql.setQuery("""
-                   # PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    # SELECT ?s ?label
-                    # WHERE { ?s rdfs:label ?label } limit 10
 
-                    select distinct ?subject ?predicate ?object
-                    where {?subject ?predicate ?object} LIMIT 10
-                """)
+                    SELECT *
+                    From named <http://localhost/questionnaires>
+                    WHERE {
+                    Graph <http://localhost/questionnaires> {?s ?p ?o}
+                    } Limit 50
+                 """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
         return Response(results)
-
-class QuestDetailView(APIView):
+class QuestionView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/questionnaire/query")
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
         sparql.setQuery("""
-                     # PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                     # SELECT ?s ?label
-                            # WHERE { ?s rdfs:label ?label } limit 10
 
-                    select distinct ?subject ?predicate ?object
-                    where {?subject ?predicate ?object} LIMIT 10
+                    SELECT *
+                    From named <http://localhost/questions>
+                    WHERE {
+                    Graph <http://localhost/questions> {?s ?p ?o}
+                    } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
         return Response(results)
 
+class DetailedQuestionnaireView(APIView):
+    def get(self, request,pk):
+        #the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj = "<http://localhost/oldca/fragebogen/" + pk + ">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://localhost/questionnaires>
+                        WHERE {
+                        Graph <http://localhost/questionnaires> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
 
+class DetailedQuestionView(APIView):
+    def get(self, request,pk):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://localhost/oldca/frage/" +pk +">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
 
-                # def quest(request):
-#     print("reached here")
-#
-#     sparql = SPARQLWrapper("http://fuseki:3030/questionnaire/query")
-#     sparql.setQuery("""
-#         # PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-#          # SELECT ?s ?label
-#          # WHERE { ?s rdfs:label ?label } limit 10
-#
-#          select distinct ?subject ?predicate ?object
-#          where {?subject ?predicate ?object} LIMIT 10
-#      """)
-#     sparql.setReturnFormat(JSON)
-#     results = sparql.query().convert()
-#     results = JSONRenderer().render(results)
-#
-#     template = loader.get_template('questions/quests.html')
-#     context = {'result': results,
-#                }
-#
-#     return HttpResponse(template.render(context, request))
+                        SELECT *
+                        From named <http://localhost/questions>
+                        WHERE {
+                        Graph <http://localhost/questions> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
