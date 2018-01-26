@@ -1,6 +1,9 @@
 version: '3'
+volumes:
+     fuseki-data:
 
 services:
+
     db:
         environment:
             MYSQL_DATABASE: db
@@ -11,7 +14,7 @@ services:
         ports:
           - 3306:3306
     web:
-        image: questapi:latest
+        image: wugsy:latest
         build: .
         command: python3 questAPI/manage.py runserver 0.0.0.0:8000
         volumes:
@@ -20,12 +23,18 @@ services:
             - "8000:8000"
         depends_on:
             - db
-        links:
-            - fuseki
-        environment:
-          - SPARQL_ENDPOINT=http://fuseki:3030/
+    fusekidata:
+        image: busybox
+        volumes:
+            - fuseki-data:/fuseki/databases
     fuseki:
-      image: stain/jena-fuseki:3.4.0
-      ports:
-      - "3030:3030"
+        image: stain/jena-fuseki:3.4.0
+        ports:
+            - "3030:3030"
+        volumes:
+            - fuseki-data:/fuseki/databases
+        environment:
+            - ADMIN_PASSWORD=admin
+            - FUSEKI_BASE=/fuseki
+            - JVM_ARGS=-Xms4g -Xmx8g
 
