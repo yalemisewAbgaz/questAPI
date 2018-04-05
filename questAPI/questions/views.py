@@ -8,7 +8,7 @@ import json
 import ast
 import os, os.path
 from django.conf import settings
-from rest_framework.decorators import api_view
+
 
 
 
