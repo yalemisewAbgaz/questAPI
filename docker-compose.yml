@@ -11,7 +11,7 @@ services:
             MYSQL_ROOT_PASSWORD: password
             MYSQL_USER: root
         image: mysql:latest
-        ports:
+        ports:doc
           - 3306:3306
     web:
         image: wugsy:latest
