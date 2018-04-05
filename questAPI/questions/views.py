@@ -8,6 +8,7 @@ import json
 import ast
 import os, os.path
 from django.conf import settings
+from rest_framework.decorators import api_view
 
 
 
@@ -85,12 +86,10 @@ def prepareLemmaInOrder(rawLemma):
 
 
 class IndexView(generic.TemplateView):
-    def get(self, request):
         template_name = "index.html"
 
-        
+
 class OntologyView(generic.TemplateView):
-    def get(self, request):
         template_name = "Ontology.owl"
 
 
