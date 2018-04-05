@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.localhost:3030/OLDCAN/"
+     xml:base="http://www.localhost:3030/OLDCAN/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.localhost:3030/OLDCAN/">
+        <owl:versionIRI rdf:resource="http://www.localhost:3030/OLDCAN/0.1"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-09-10</terms:issued>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+        <terms:creator xml:lang="en">Yalemisew Abgaz</terms:creator>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-09-10</terms:created>
+        <terms:contributor xml:lang="en">Amelie Doren</terms:contributor>
+        <terms:contributor xml:lang="en">Eveline Wandl-vogt</terms:contributor>
+        <terms:contributor xml:lang="en">Barbara Pringer</terms:contributor>
+        <dc:description xml:lang="en">A model for representing concepts, relationships and axioms for data collection methods applied for historical-lexical data collection and Analysis(OLDCAN).</dc:description>
+        <rdfs:comment xml:lang="en">The purpose of this model is to support a shared understanding and formal representation of the concepts, relationships and axioms of the data collection methods used to collect historical-lexical information at the Austrian Academy of Sciences.</rdfs:comment>
+        <dc:title xml:lang="en">Ontology for Lexical Data Collection And ANalysis (OLDCAN)</dc:title>
+        <cc:licence rdf:resource="https://creativecommons.org/licenses/by/3.0/at/deed.en"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://creativecommons.org/ns#licence -->
+
+    <owl:AnnotationProperty rdf:about="http://creativecommons.org/ns#licence"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+        <terms:description xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#description-006"/>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">An account of the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#title-006"/>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A name given to the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/hasVersion"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#note"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasAnswer -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#hasAnswer">
+        <owl:inverseOf rdf:resource="http://www.localhost:3030/OLDCA#isAnswerOf"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Answer"/>
+        <rdfs:comment xml:lang="en">The hasAnswer property relates the question to the answer of the question.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Answer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#hasAuthor">
+        <owl:inverseOf rdf:resource="http://www.localhost:3030/OLDCA#isAuthorOf"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Author"/>
+        <rdfs:comment xml:lang="en">The hasAuthor property relates the questionnaire to one or more author of the questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Author</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasQuestion -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#hasQuestion">
+        <owl:inverseOf rdf:resource="http://www.localhost:3030/OLDCA#isQuestionOf"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">The hasQuestion property relates the questionnaire to one or more question which is contained in it.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Question</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasRelatedQuestionnaire -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#hasRelatedQuestionnaire">
+        <owl:inverseOf rdf:resource="http://www.localhost:3030/OLDCA#isRelatedQuestionnaireOf"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">The hasRelatedQuestionnaire property relates the questionnaire to one or more related questionnaire that share similar topic.</rdfs:comment>
+        <rdfs:label xml:lang="en">has related Questionnaire</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasSubQuestion -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#hasSubQuestion">
+        <owl:inverseOf rdf:resource="http://www.localhost:3030/OLDCA#isSubQuestionOf"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">The hasSubQuestion property relates the question to one or more subquestions under it.</rdfs:comment>
+        <rdfs:label xml:lang="en">has subQuestion</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasTopic -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#hasTopic">
+        <owl:inverseOf rdf:resource="http://www.localhost:3030/OLDCA#isTopicOf"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Topic"/>
+        <rdfs:comment xml:lang="en">The hasTopic property relates the questionnaire or the question to the topic of the questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Topic</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#isAnswerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#isAnswerOf">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Answer"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">The isAnswerOf property relates the Answer to the question.</rdfs:comment>
+        <rdfs:label xml:lang="en">is Answer of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#isAuthorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#isAuthorOf">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Author"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">The isAuthorOf property relates the Author to the questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="en">is Author of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#isQuestionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#isQuestionOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">The isQuestionOf property relates the question to one questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="en">is Question of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#isRelatedQuestionnaireOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#isRelatedQuestionnaireOf">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">The hasRelatedQuestionnaire property relates the questionnaire to one or more related questionnaire that share similar topic.</rdfs:comment>
+        <rdfs:label xml:lang="en">is related Questionnaire of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#isSubQuestionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#isSubQuestionOf">
+        <rdfs:comment xml:lang="en">The isSubQuestionOf property relates a subquestion to one or more questions.</rdfs:comment>
+        <rdfs:label xml:lang="en">is SubQuestion of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#isTopicOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.localhost:3030/OLDCA#isTopicOf">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Topic"/>
+        <rdfs:range rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">The isTopicOf property relates the topic with either the questionnaire or the question it is discussed in.</rdfs:comment>
+        <rdfs:label xml:lang="en">is Topic of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasFirstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasFirstName">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">the first name of a person.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/firstName"/>
+        <rdfs:label xml:lang="en">firstName</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasKeywords -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasKeywords">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">Keywords that represent the topic of the questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="en">Keywords</rdfs:label>
+        <rdfs:label xml:lang="de">Schlagwoerter</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasLastName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasLastName">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The last name of a person.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/lastName"/>
+        <rdfs:label xml:lang="en">lastName</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasMiddleName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasMiddleName">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The middle name of a person</rdfs:comment>
+        <rdfs:label xml:lang="en">middleName</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasNote -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasNote">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">A short note associated with the questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="de">Anmerkung</rdfs:label>
+        <rdfs:label xml:lang="en">Note</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasNumber">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The unique number assigned to the question or the questionnaire</rdfs:comment>
+        <rdfs:label xml:lang="en">Number</rdfs:label>
+        <rdfs:label xml:lang="de">nummer</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasOriginalData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasOriginalData">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The original Question printed on the questionnaire and used during data collection.</rdfs:comment>
+        <rdfs:label xml:lang="en">Original Data</rdfs:label>
+        <rdfs:label xml:lang="de">originaldaten</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasOriginalQuestion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasOriginalQuestion">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The original Question asked</rdfs:comment>
+        <rdfs:label xml:lang="en">Original Question</rdfs:label>
+        <rdfs:label xml:lang="de">originalfrage</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasReleaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasReleaseDate">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">The release date of the questionnaire. The date the questionnaire is released for collection of data?</rdfs:comment>
+        <rdfs:label xml:lang="de">Freigabe</rdfs:label>
+        <rdfs:label xml:lang="en">Release Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasShortQuestion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasShortQuestion">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The short version of the original Question asked.</rdfs:comment>
+        <rdfs:label xml:lang="de">Kurzfrage</rdfs:label>
+        <rdfs:label xml:lang="en">Short Question</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasTitle">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The title of the questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="de">Titel</rdfs:label>
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#hasYearOfPublication -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#hasYearOfPublication">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">The year in which the questionnaire is published.</rdfs:comment>
+        <rdfs:label xml:lang="de">Erscheinungsjahr</rdfs:label>
+        <rdfs:label xml:lang="en">Year of Publication</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#isChecked -->
+
+    <owl:DatatypeProperty rdf:about="http://www.localhost:3030/OLDCA#isChecked">
+        <rdfs:domain rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">indicates the questionnaire is checked?</rdfs:comment>
+        <rdfs:label xml:lang="de">Checked</rdfs:label>
+        <rdfs:label xml:lang="en">Checked</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#AdditionalQuestionnaire -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#AdditionalQuestionnaire">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">Additional Questionnaire is a Questionnaire that is used as a supplementary questionnaire to the systematic questionnaire.</rdfs:comment>
+        <rdfs:label xml:lang="en">Additional Questionnaire</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#Answer -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#Answer">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.localhost:3030/OLDCA#isAnswerOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An Answer represents a written, spoken or illustrated response to a question.</rdfs:comment>
+        <rdfs:label xml:lang="en">Answer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#Author -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#Author">
+        <rdfs:comment xml:lang="en">Authors/ collectors are defined in FOAF ontology and we will reuse the definition provided in FOAF Agent/Author classes.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:label xml:lang="en">Author</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#CulturalQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#CulturalQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Cultural Question is a Question which asks for a belief of societies, procedures on how to make or prepare things, how to play games, contents of cultural songs, poems used for celebrations etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">Cultural Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#DescriptionQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#DescriptionQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Description Question is a Question which asks for a written representation of a given entity. An example of description question could be “What would be the function of X?”.</rdfs:comment>
+        <rdfs:label xml:lang="en">Description Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#DialectographicQuestionnaire -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#DialectographicQuestionnaire">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">Dialectographic Questionnaire is a Questionnaire of the Munich and Vienna Dictionary Commissions.</rdfs:comment>
+        <rdfs:label xml:lang="en">Dialectographic Questionnaire</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#DichotomousQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#DichotomousQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Dichotomous Question is a Question which asks for a selection of answers from a binary option. It includes Yes/No, Agree/disagree, etc. types of answers for stated questions.</rdfs:comment>
+        <rdfs:label xml:lang="en">Dichotomous Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#IllustrationQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#IllustrationQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Illustration Question is a Question which asks for a pictorial, diagrammatic, etc.  representation of a given entity. An example of illustration question could be “What Does X look like?”.</rdfs:comment>
+        <rdfs:label xml:lang="en">Illustration Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#MetaphoricalQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#MetaphoricalQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Metaphorical Question is a Question which asks for some conveyed meanings of a given word or expression. Metaphorical questions are related to semasiolgical questions, but they ask for additional interpretation of the expression beyond its obvious meaning.</rdfs:comment>
+        <rdfs:label xml:lang="en">Metaphorical Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#MorphologicalQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#MorphologicalQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Morphological Question is a Question which asks about the structure and the formation of words and parts of words. Based on the structure, morphological questions can take various forms.</rdfs:comment>
+        <rdfs:label xml:lang="en">Morphological Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#MultipleChoiceQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#MultipleChoiceQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Multiple choice Question is a Question which asks for a selection of one item from a list of three or more potential answers.</rdfs:comment>
+        <rdfs:label xml:lang="en">Multiple Choice Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#OnomasiologicalQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#OnomasiologicalQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Onomasiological Question is a Question which asks for the name of a given entity. Onomasiological question may take a form of “how do you call x?”.</rdfs:comment>
+        <rdfs:label xml:lang="en">Onomasiological Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#PhonologicalQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#PhonologicalQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Phonological Question is a Question which asks for the pronunciation (Sound), or phonetic representation of words.</rdfs:comment>
+        <rdfs:label xml:lang="en">Phonological Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#Question -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#Question">
+        <rdfs:comment xml:lang="en">A Question represents an expression used to request information.</rdfs:comment>
+        <rdfs:label xml:lang="de">Frage</rdfs:label>
+        <rdfs:label xml:lang="en">Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#Questionnaire -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#Questionnaire">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.localhost:3030/OLDCA#hasQuestion"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.localhost:3030/OLDCA#hasTopic"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.localhost:3030/OLDCA#Topic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A questionnaire represents a set of questions that are related to each other. A questionnaire contains metadata such as questionnaire identifiers, titles, agents and publication related information.  There are six different types of questionnaire which are treated as the subclasses of Questionnaire class.</rdfs:comment>
+        <rdfs:label xml:lang="de">Fragebogen</rdfs:label>
+        <rdfs:label xml:lang="en">Questionnaire</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#RankingQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#RankingQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Ranking Question is a Question which asks to compare entities and rank them in a certain order.</rdfs:comment>
+        <rdfs:label xml:lang="en">Ranking Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#RatingQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#RatingQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Rating Question is a Question which asks the respondent to assign a rate (degree of excellence) to a given entity based on a predefined range.</rdfs:comment>
+        <rdfs:label xml:lang="en">Rating Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#SemasiologicalQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#SemasiologicalQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Semasiological Question is a Question which asks for the meaning of a given entity. Semasiological question may take a form of “what does x means?”.</rdfs:comment>
+        <rdfs:label xml:lang="en">Semasiological Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#SyntacticQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#SyntacticQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Syntactic Question is a Question which asks for a construction of phrases or sentences using a given word or a given idiom. They have the form “Provide a phrase/sentence for/using a word/idiom X”.</rdfs:comment>
+        <rdfs:label xml:lang="en">Syntactic Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#SystematicQuestionnaire -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#SystematicQuestionnaire">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Questionnaire"/>
+        <rdfs:comment xml:lang="en">Systematic Questionnaire is a Questionnaire that is used to collect data. This type of questionnaire is used from the beginning of the data collection process.</rdfs:comment>
+        <rdfs:label xml:lang="en">Systematic Questionnaire</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#ThesaurusQuestion -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#ThesaurusQuestion">
+        <rdfs:subClassOf rdf:resource="http://www.localhost:3030/OLDCA#Question"/>
+        <rdfs:comment xml:lang="en">Thesaurus Question is a Question which asks for a list of words or expressions that are used as synonyms (Sometimes, antonyms) or contrasts of a given entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">Thesaurus Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.localhost:3030/OLDCA#Topic -->
+
+    <owl:Class rdf:about="http://www.localhost:3030/OLDCA#Topic">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalConcept"/>
+        <rdfs:comment xml:lang="en">A Topic represents the main subject of a questionnaire or a question.   A questionnaire may focus on a general topic such as “Food” and a question may cover subtopics such as “Traditional Food”.</rdfs:comment>
+        <rdfs:label xml:lang="en">Topic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/ontolex#LexicalConcept -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/ontolex#LexicalConcept"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/">
+        <terms:publisher rdf:resource="http://purl.org/dc/aboutdcmi#DCMI"/>
+        <terms:title xml:lang="en">Dublin Core Metadata Element Set, Version 1.1</terms:title>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-14</terms:modified>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+        <rdfs:label xml:lang="en">Contributor</rdfs:label>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#contributor-006"/>
+        <rdfs:comment xml:lang="en">An entity responsible for making contributions to the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity.</terms:description>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/coverage">
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#coverage-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</rdfs:comment>
+        <terms:description xml:lang="en">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</terms:description>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <rdfs:label xml:lang="en">Coverage</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:label xml:lang="en">Creator</rdfs:label>
+        <rdfs:comment xml:lang="en">An entity primarily responsible for making the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:description xml:lang="en">Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#creator-006"/>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#date-006"/>
+        <rdfs:comment xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</terms:description>
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:label xml:lang="en">Format</rdfs:label>
+        <rdfs:comment xml:lang="en">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#format-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:description xml:lang="en">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</terms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/identifier">
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:description xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </terms:description>
+        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:label xml:lang="en">Identifier</rdfs:label>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:label xml:lang="en">Language</rdfs:label>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#language-007"/>
+        <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:comment xml:lang="en">A language of the resource.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#publisher-006"/>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:description xml:lang="en">Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.</terms:description>
+        <rdfs:comment xml:lang="en">An entity responsible for making the resource available.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/relation">
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#relation-006"/>
+        <terms:description xml:lang="en">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </terms:description>
+        <rdfs:label xml:lang="en">Relation</rdfs:label>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">A related resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#rights-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</terms:description>
+        <rdfs:label xml:lang="en">Rights</rdfs:label>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/source">
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#source-006"/>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:comment xml:lang="en">A related resource from which the described resource is derived.</rdfs:comment>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <terms:description xml:lang="en">The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</terms:description>
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/subject">
+        <terms:description xml:lang="en">Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary.</terms:description>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <rdfs:label xml:lang="en">Subject</rdfs:label>
+        <rdfs:comment xml:lang="en">The topic of the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-14</terms:modified>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#subject-007"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/type">
+        <rdfs:comment xml:lang="en">The nature or genre of the resource.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#type-006"/>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</terms:description>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999-07-02</terms:issued>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008-01-14</terms:modified>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.localhost:3030/OLDCA#AdditionalQuestionnaire"/>
+            <rdf:Description rdf:about="http://www.localhost:3030/OLDCA#DialectographicQuestionnaire"/>
+            <rdf:Description rdf:about="http://www.localhost:3030/OLDCA#SystematicQuestionnaire"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
