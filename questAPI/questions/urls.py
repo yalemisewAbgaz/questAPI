@@ -17,7 +17,7 @@ urlpatterns = {
     url(r'^questionnaire/(?P<pk>[0-9]+).html/?$', DetailedQuestionnaireHtmlView.as_view()),
 
     url(r'^lemmaSort/(?P<entry>[\w\-]+)$', LemmaSortCode.as_view()),
-    url(r'^lem:qmaSortBatch/(?P<entry>[{][\w\-]+[}])$', LemmaSortCode.as_view()),
+    url(r'^lemmaSortBatch/(?P<entry>[{][\w\-]+[}])$', LemmaSortCode.as_view()),
 
 }
 

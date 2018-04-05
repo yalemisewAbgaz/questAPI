@@ -83,9 +83,12 @@ def prepareLemmaInOrder(rawLemma):
 
     return invertedHead + invertedInBraket + invertedBeforeBraket
 
+
 class IndexView(generic.TemplateView):
     def get(self, request):
         template_name = "index.html"
+
+        
 class OntologyView(generic.TemplateView):
     def get(self, request):
         template_name = "Ontology.owl"
