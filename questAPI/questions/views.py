@@ -123,23 +123,121 @@ class QuestionnaireView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://localhost/questionnaires>
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph>
                     WHERE {
-                    Graph <http://localhost/questionnaires> {?s ?p ?o}
+                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
         return Response(results)
+
+
 class QuestionView(APIView):
     def get(self, request):
         sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://localhost/questions>
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph>
                     WHERE {
-                    Graph <http://localhost/questions> {?s ?p ?o}
+                    Graph  <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph> {?s ?p ?o}
+                    } Limit 50
+                 """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+
+
+class LemmaView(APIView):
+    def get(self, request):
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                    SELECT *
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph>
+                    WHERE {
+                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph> {?s ?p ?o}
+                    } Limit 50
+                 """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+
+
+class SourceView(APIView):
+    def get(self, request):
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                    SELECT *
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph>
+                    WHERE {
+                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph> {?s ?p ?o}
+                    } Limit 50
+                 """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+
+
+class PaperSlipView(APIView):
+    def get(self, request):
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                    SELECT *
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph>
+                    WHERE {
+                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph> {?s ?p ?o}
+                    } Limit 50
+                 """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+
+
+class PaperSlipRecordView(APIView):
+    def get(self, request):
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                    SELECT *
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph>
+                    WHERE {
+                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph> {?s ?p ?o}
+                    } Limit 50
+                 """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+
+
+class MultimediaView(APIView):
+    def get(self, request):
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                    SELECT *
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph>
+                    WHERE {
+                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph> {?s ?p ?o}
+                    } Limit 50
+                 """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+
+
+class PersonView(APIView):
+    def get(self, request):
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                    SELECT *
+                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph>
+                    WHERE {
+                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -149,31 +247,32 @@ class QuestionView(APIView):
 class DetailedQuestionnaireView(APIView):
     def get(self, request,pk):
         #the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj = "<http://localhost/oldca/fragebogen/" + pk + ">"
+        subj = "<http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire/" + pk + ">"
         sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://localhost/questionnaires>
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph>
                         WHERE {
-                        Graph <http://localhost/questionnaires> {""" +subj + """ ?p ?o}
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
         return Response(results)
 
+
 class DetailedQuestionView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://localhost/oldca/frage/" +pk +">"
+        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Question/" +pk +">"
         sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://localhost/questions>
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph>
                         WHERE {
-                        Graph <http://localhost/questions> {""" +subj + """ ?p ?o}
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -184,6 +283,143 @@ class DetailedQuestionView(APIView):
         #     # It does not require serialization.
         #     return Response(results, template_name='question.html')
         return Response(results)
+
+
+class DetailedPaperSlipRecordView(APIView):
+    def get(self, request,pk):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord/" +pk +">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                        SELECT *
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph>
+                        WHERE {
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        # if request.accepted_renderer.format == 'html':
+        #     # TemplateHTMLRenderer takes a context dict,
+        #     # and additionally requires a 'template_name'.
+        #     # It does not require serialization.
+        #     return Response(results, template_name='question.html')
+        return Response(results)
+
+class DetailedLemmaView(APIView):
+    def get(self, request,pk):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Lemma/" +pk +">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                        SELECT *
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph>
+                        WHERE {
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        # if request.accepted_renderer.format == 'html':
+        #     # TemplateHTMLRenderer takes a context dict,
+        #     # and additionally requires a 'template_name'.
+        #     # It does not require serialization.
+        #     return Response(results, template_name='question.html')
+        return Response(results)
+
+
+class DetailedSourceView(APIView):
+    def get(self, request,pk):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Source/" +pk +">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                        SELECT *
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph>
+                        WHERE {
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        # if request.accepted_renderer.format == 'html':
+        #     # TemplateHTMLRenderer takes a context dict,
+        #     # and additionally requires a 'template_name'.
+        #     # It does not require serialization.
+        #     return Response(results, template_name='question.html')
+        return Response(results)
+
+class DetailedPaperSlipView(APIView):
+    def get(self, request,pk):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip/" +pk +">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                        SELECT *
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph>
+                        WHERE {
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        # if request.accepted_renderer.format == 'html':
+        #     # TemplateHTMLRenderer takes a context dict,
+        #     # and additionally requires a 'template_name'.
+        #     # It does not require serialization.
+        #     return Response(results, template_name='question.html')
+        return Response(results)
+
+class DetailedMultimediaView(APIView):
+    def get(self, request,pk):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Multimedia/" +pk +">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                        SELECT *
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph>
+                        WHERE {
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        # if request.accepted_renderer.format == 'html':
+        #     # TemplateHTMLRenderer takes a context dict,
+        #     # and additionally requires a 'template_name'.
+        #     # It does not require serialization.
+        #     return Response(results, template_name='question.html')
+        return Response(results)
+
+
+class DetailedPersonView(APIView):
+    def get(self, request,pk):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Person/" +pk +">"
+        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql.setQuery("""
+
+                        SELECT *
+                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph>
+                        WHERE {
+                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph> {""" +subj + """ ?p ?o}
+                        } Limit 50
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        # if request.accepted_renderer.format == 'html':
+        #     # TemplateHTMLRenderer takes a context dict,
+        #     # and additionally requires a 'template_name'.
+        #     # It does not require serialization.
+        #     return Response(results, template_name='question.html')
+        return Response(results)
+
+
 class LemmaSortCode(APIView):
     def get(self, request,entry):
 
