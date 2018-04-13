@@ -9,7 +9,7 @@ import ast
 import os, os.path
 from django.conf import settings
 
-
+dataset="http://fuseki:3030/dboe/query"
 
 
 def generateSortCode(currentLemma, sortEncodingDict):
@@ -104,7 +104,7 @@ class DetailedQuestionHtmlView(APIView):
     def get(self, request, pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://localhost/oldca/frage/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -119,7 +119,7 @@ class DetailedQuestionHtmlView(APIView):
 
 class QuestionnaireView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -135,7 +135,7 @@ class QuestionnaireView(APIView):
 
 class QuestionView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -151,7 +151,7 @@ class QuestionView(APIView):
 
 class LemmaView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -167,7 +167,7 @@ class LemmaView(APIView):
 
 class SourceView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -183,7 +183,7 @@ class SourceView(APIView):
 
 class PaperSlipView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -199,7 +199,7 @@ class PaperSlipView(APIView):
 
 class PaperSlipRecordView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -215,7 +215,7 @@ class PaperSlipRecordView(APIView):
 
 class MultimediaView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -231,7 +231,7 @@ class MultimediaView(APIView):
 
 class PersonView(APIView):
     def get(self, request):
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                     SELECT *
@@ -248,7 +248,7 @@ class DetailedQuestionnaireView(APIView):
     def get(self, request,pk):
         #the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj = "<http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire/" + pk + ">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -266,7 +266,7 @@ class DetailedQuestionView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://explorations4u.acdh.oeaw.ac.at/data/Question/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -289,7 +289,7 @@ class DetailedPaperSlipRecordView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -311,7 +311,7 @@ class DetailedLemmaView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://explorations4u.acdh.oeaw.ac.at/data/Lemma/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -334,7 +334,7 @@ class DetailedSourceView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://explorations4u.acdh.oeaw.ac.at/data/Source/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -356,7 +356,7 @@ class DetailedPaperSlipView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -378,7 +378,7 @@ class DetailedMultimediaView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://explorations4u.acdh.oeaw.ac.at/data/Multimedia/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
@@ -401,7 +401,7 @@ class DetailedPersonView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         subj="<http://explorations4u.acdh.oeaw.ac.at/data/Person/" +pk +">"
-        sparql = SPARQLWrapper("http://fuseki:3030/Questionnaire/query")
+        sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
