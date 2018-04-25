@@ -21,8 +21,8 @@ urlpatterns = {
 
 
 
-    url(r'^lemma/?$', LemmaView.as_view()),
-    url(r'^lemma/(?P<pk>[0-9]+)/?$', DetailedLemmaView.as_view()),
+    url(r'^Lemma/?$', LemmaView.as_view()),
+    url(r'^Lemma/(?P<pk>[0-9]+)/?$', DetailedLemmaView.as_view()),
 
     url(r'^Source/?$', SourceView.as_view()),
     url(r'^Source/(?P<pk>[0-9]+)/?$', DetailedSourceView.as_view()),
