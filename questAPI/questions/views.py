@@ -123,9 +123,9 @@ class QuestionnaireView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph>
+                    From named <http://exploreat.adaptcentre.ie/Questionnaire_graph>
                     WHERE {
-                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph> {?s ?p ?o}
+                    Graph <http://exploreat.adaptcentre.ie/Questionnaire_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -139,9 +139,9 @@ class QuestionView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph>
+                    From named <http://exploreat.adaptcentre.ie/Question_graph>
                     WHERE {
-                    Graph  <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph> {?s ?p ?o}
+                    Graph  <http://exploreat.adaptcentre.ie/Question_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -155,9 +155,9 @@ class LemmaView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph>
+                    From named <http://exploreat.adaptcentre.ie/Lemma_graph>
                     WHERE {
-                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph> {?s ?p ?o}
+                    Graph <http://exploreat.adaptcentre.ie/Lemma_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -171,9 +171,9 @@ class SourceView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph>
+                    From named <http://exploreat.adaptcentre.ie/Source_graph>
                     WHERE {
-                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph> {?s ?p ?o}
+                    Graph <http://exploreat.adaptcentre.ie/Source_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -187,9 +187,9 @@ class PaperSlipView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph>
+                    From named <http://exploreat.adaptcentre.ie/PaperSlip_graph>
                     WHERE {
-                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph> {?s ?p ?o}
+                    Graph <http://exploreat.adaptcentre.ie/PaperSlip_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -203,9 +203,9 @@ class PaperSlipRecordView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph>
+                    From named <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph>
                     WHERE {
-                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph> {?s ?p ?o}
+                    Graph <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -219,9 +219,9 @@ class MultimediaView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph>
+                    From named <http://exploreat.adaptcentre.ie/Multimedia_graph>
                     WHERE {
-                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph> {?s ?p ?o}
+                    Graph <http://exploreat.adaptcentre.ie/Multimedia_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -235,9 +235,9 @@ class PersonView(APIView):
         sparql.setQuery("""
 
                     SELECT *
-                    From named <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph>
+                    From named <http://exploreat.adaptcentre.ie/Person_graph>
                     WHERE {
-                    Graph <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph> {?s ?p ?o}
+                    Graph <http://exploreat.adaptcentre.ie/Person_graph> {?s ?p ?o}
                     } Limit 50
                  """)
         sparql.setReturnFormat(JSON)
@@ -247,14 +247,14 @@ class PersonView(APIView):
 class DetailedQuestionnaireView(APIView):
     def get(self, request,pk):
         #the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj = "<http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire/" + pk + ">"
+        subj = "<http://exploreat.adaptcentre.ie/Questionnaire/" + pk + ">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph>
+                        From named <http://exploreat.adaptcentre.ie/Questionnaire_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Questionnaire_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/Questionnaire_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -265,14 +265,14 @@ class DetailedQuestionnaireView(APIView):
 class DetailedQuestionView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Question/" +pk +">"
+        subj="<http://exploreat.adaptcentre.ie/Question/" +pk +">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph>
+                        From named <http://exploreat.adaptcentre.ie/Question_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Question_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/Question_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -288,14 +288,14 @@ class DetailedQuestionView(APIView):
 class DetailedPaperSlipRecordView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord/" +pk +">"
+        subj="<http://exploreat.adaptcentre.ie/PaperSlipRecord/" +pk +">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph>
+                        From named <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlipRecord_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -310,14 +310,14 @@ class DetailedPaperSlipRecordView(APIView):
 class DetailedLemmaView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Lemma/" +pk +">"
+        subj="<http://exploreat.adaptcentre.ie/Lemma/" +pk +">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph>
+                        From named <http://exploreat.adaptcentre.ie/Lemma_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Lemma_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/Lemma_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -333,14 +333,14 @@ class DetailedLemmaView(APIView):
 class DetailedSourceView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Source/" +pk +">"
+        subj="<http://exploreat.adaptcentre.ie/Source/" +pk +">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph>
+                        From named <http://exploreat.adaptcentre.ie/Source_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Source_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/Source_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -355,14 +355,14 @@ class DetailedSourceView(APIView):
 class DetailedPaperSlipView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip/" +pk +">"
+        subj="<http://exploreat.adaptcentre.ie/PaperSlip/" +pk +">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph>
+                        From named <http://exploreat.adaptcentre.ie/PaperSlip_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/PaperSlip_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/PaperSlip_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -377,14 +377,14 @@ class DetailedPaperSlipView(APIView):
 class DetailedMultimediaView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Multimedia/" +pk +">"
+        subj="<http://exploreat.adaptcentre.ie/Multimedia/" +pk +">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph>
+                        From named <http://exploreat.adaptcentre.ie/Multimedia_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Multimedia_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/Multimedia_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
@@ -400,14 +400,14 @@ class DetailedMultimediaView(APIView):
 class DetailedPersonView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://explorations4u.acdh.oeaw.ac.at/data/Person/" +pk +">"
+        subj="<http://exploreat.adaptcentre.ie/Person/" +pk +">"
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
-                        From named <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph>
+                        From named <http://exploreat.adaptcentre.ie/Person_graph>
                         WHERE {
-                        Graph <http://explorations4u.acdh.oeaw.ac.at/data/Person_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/Person_graph> {""" +subj + """ ?p ?o}
                         } Limit 50
                      """)
         sparql.setReturnFormat(JSON)
