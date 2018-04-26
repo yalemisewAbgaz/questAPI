@@ -4,6 +4,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 #     QuestionnaireView,DetailedQuestionView,DetailedQuestionnaireView,\
 #     DetailedQuestionHtmlView, DetailedQuestionnaireHtmlView, LemmaSortCode
 from .views import *
+from django.conf.urls.static import static
 
 urlpatterns = {
     url(r'^$', IndexView.as_view()),
