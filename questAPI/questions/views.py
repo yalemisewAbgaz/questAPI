@@ -126,7 +126,7 @@ class QuestionnaireView(APIView):
                     From named <http://exploreat.adaptcentre.ie/Questionnaire_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/Questionnaire_graph> {?s ?p ?o}
-                    } Limit 50
+                    }
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -142,7 +142,7 @@ class QuestionView(APIView):
                     From named <http://exploreat.adaptcentre.ie/Question_graph>
                     WHERE {
                     Graph  <http://exploreat.adaptcentre.ie/Question_graph> {?s ?p ?o}
-                    } Limit 50
+                    }
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -158,7 +158,7 @@ class LemmaView(APIView):
                     From named <http://exploreat.adaptcentre.ie/Lemma_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/Lemma_graph> {?s ?p ?o}
-                    } Limit 50
+                    } 
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -174,7 +174,7 @@ class SourceView(APIView):
                     From named <http://exploreat.adaptcentre.ie/Source_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/Source_graph> {?s ?p ?o}
-                    } Limit 50
+                    }
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -190,7 +190,7 @@ class PaperSlipView(APIView):
                     From named <http://exploreat.adaptcentre.ie/PaperSlip_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/PaperSlip_graph> {?s ?p ?o}
-                    } Limit 50
+                    } 
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -206,7 +206,7 @@ class PaperSlipRecordView(APIView):
                     From named <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph> {?s ?p ?o}
-                    } Limit 50
+                    }
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -222,7 +222,7 @@ class MultimediaView(APIView):
                     From named <http://exploreat.adaptcentre.ie/Multimedia_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/Multimedia_graph> {?s ?p ?o}
-                    } Limit 50
+                    }
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -238,7 +238,7 @@ class PersonView(APIView):
                     From named <http://exploreat.adaptcentre.ie/Person_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/Person_graph> {?s ?p ?o}
-                    } Limit 50
+                    } 
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -255,7 +255,7 @@ class DetailedQuestionnaireView(APIView):
                         From named <http://exploreat.adaptcentre.ie/Questionnaire_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/Questionnaire_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -273,7 +273,7 @@ class DetailedQuestionView(APIView):
                         From named <http://exploreat.adaptcentre.ie/Question_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/Question_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -296,7 +296,7 @@ class DetailedPaperSlipRecordView(APIView):
                         From named <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -318,7 +318,7 @@ class DetailedLemmaView(APIView):
                         From named <http://exploreat.adaptcentre.ie/Lemma_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/Lemma_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -341,7 +341,7 @@ class DetailedSourceView(APIView):
                         From named <http://exploreat.adaptcentre.ie/Source_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/Source_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -363,7 +363,7 @@ class DetailedPaperSlipView(APIView):
                         From named <http://exploreat.adaptcentre.ie/PaperSlip_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/PaperSlip_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -385,7 +385,7 @@ class DetailedMultimediaView(APIView):
                         From named <http://exploreat.adaptcentre.ie/Multimedia_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/Multimedia_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
@@ -408,7 +408,7 @@ class DetailedPersonView(APIView):
                         From named <http://exploreat.adaptcentre.ie/Person_graph>
                         WHERE {
                         Graph <http://exploreat.adaptcentre.ie/Person_graph> {""" +subj + """ ?p ?o}
-                        } Limit 50
+                        } 
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
