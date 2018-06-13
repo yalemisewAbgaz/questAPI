@@ -7,7 +7,10 @@ from rest_framework.views import APIView
 import json
 import ast
 import os, os.path
-from django.conf import settings
+
+from .pagination import PostLimitOffsetPagination, PostPageNumberPagination
+from django.core.paginator import Paginator
+
 
 dataset="http://fuseki:3030/dboe/query"
 
@@ -117,6 +120,32 @@ class DetailedQuestionHtmlView(APIView):
         results = sparql.query().convert()
         return Response(results)
 
+
+# class QuestionnaireView(generics.GenericAPIView):
+#     pagination_class = PostPageNumberPagination
+#
+#     def get(self, request):
+#         sparql = SPARQLWrapper(dataset)
+#         sparql.setQuery("""
+#
+#                      SELECT *
+#                      From named <http://exploreat.adaptcentre.ie/Questionnaire_graph>
+#                      WHERE {
+#                      Graph <http://exploreat.adaptcentre.ie/Questionnaire_graph> {?s ?p ?o}
+#                      } Limit 100
+#                   """)
+#         sparql.setReturnFormat(JSON)
+#         results = sparql.query().convert()
+#         results = results['results']['bindings']
+#         page=Paginator(results, 100)
+#
+#         if page is not None:
+#             serializer_class = self..get_serializer(page, many=True)
+#             return self.get_paginated_response(serializer_class.data)
+#
+#         serializer = self.get_serializer(results, many=True)
+#         return Response(serializer.data)
+
 class QuestionnaireView(APIView):
     def get(self, request):
         sparql = SPARQLWrapper(dataset)
@@ -126,10 +155,11 @@ class QuestionnaireView(APIView):
                     From named <http://exploreat.adaptcentre.ie/Questionnaire_graph>
                     WHERE {
                     Graph <http://exploreat.adaptcentre.ie/Questionnaire_graph> {?s ?p ?o}
-                    }
+                    } Limit 100
                  """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
+        results=results['results']['bindings']
         return Response(results)
 
 

@@ -19,6 +19,7 @@ services:
         command: python3 questAPI/manage.py runserver 0.0.0.0:8000
         volumes:
             - .:/code
+            - .:/static
         ports:
             - "8000:8000"
         depends_on:
@@ -36,5 +37,14 @@ services:
         environment:
             - ADMIN_PASSWORD=admin
             - FUSEKI_BASE=/fuseki
-            - JVM_ARGS=-Xms4g -Xmx8g
+            - JVM_ARGS=-Xms2g -Xmx4g
+    nginx:
+        image: nginx:latest
+        expose:
+            - "8001"
+        volumes:
+            - ./config/nginx:/etc/nginx/conf.d
+            - .:/static
+        depends_on:
+            - web
 
