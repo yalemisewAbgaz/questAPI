@@ -10,6 +10,7 @@ import os, os.path
 
 from .pagination import PostLimitOffsetPagination, PostPageNumberPagination
 from django.core.paginator import Paginator
+from django.conf import settings
 
 
 dataset="http://fuseki:3030/dboe/query"
