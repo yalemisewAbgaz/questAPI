@@ -10,7 +10,7 @@ urlpatterns = {
     url(r'^$', IndexView.as_view()),
     url(r'^ontology/?$', OntologyView.as_view()),
     url(r'^Question/?$', QuestionView.as_view()),
-    url(r'^Question/(?P<pk>[0-9]+[-][A-Z]+[0-9]+)/?$', DetailedQuestionView.as_view()),
+    url(r'^Question/(?P<pk>[0-9]+)?$', DetailedQuestionView.as_view()),
     url(r'^Questionnaire/?$', QuestionnaireView.as_view()),
     url(r'^Questionnaire/(?P<pk>[0-9]+)/?$', DetailedQuestionnaireView.as_view()),
     # here details of the data being viewed as html
