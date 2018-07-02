@@ -314,7 +314,27 @@ class DetailedQuestionView(APIView):
         #     return Response(results, template_name='question.html')
         return Response(results)
 
+class DetailedQuestionViewById(APIView):
+    def get(self, request,start,end):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        subj="<http://exploreat.adaptcentre.ie/Question/" +pk +">"
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/Question_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/Question_graph> {""" +subj + """ ?p ?o}
+                        } 
+                     """)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        # if request.accepted_renderer.format == 'html':
+        #     # TemplateHTMLRenderer takes a context dict,
+        #     # and additionally requires a 'template_name'.
+        #     # It does not require serialization.
+        #     return Response(results, template_name='question.html')
+        return Response(results)
 class DetailedPaperSlipRecordView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
