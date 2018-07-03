@@ -291,7 +291,32 @@ class DetailedQuestionnaireView(APIView):
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
         return Response(results)
+class DetailedQuestionnaireViewLimit(APIView):
+    def get(self, request,limit,offset):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) <= 0:  #set the offset to 1
+            offset=1
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/Questionnaire/'+str(i)+">,"
+        uris=uris[:-1]
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/Questionnaire_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/Questionnaire_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
+                        } 
+                         """
+                     )
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
 
 class DetailedQuestionView(APIView):
     def get(self, request,pk):
@@ -315,26 +340,31 @@ class DetailedQuestionView(APIView):
         #     return Response(results, template_name='question.html')
         return Response(results)
 
-class DetailedQuestionViewById(APIView):
-    def get(self, request,start,end):
+class DetailedQuestionViewLimit(APIView):
+    def get(self, request,limit,offset):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
-        subj="<http://exploreat.adaptcentre.ie/Question/" +pk +">"
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) <= 0:  #set the offset to 1
+            offset=1
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/Question/'+str(i)+">,"
+        uris=uris[:-1]
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
 
                         SELECT *
                         From named <http://exploreat.adaptcentre.ie/Question_graph>
                         WHERE {
-                        Graph <http://exploreat.adaptcentre.ie/Question_graph> {""" +subj + """ ?p ?o}
+                        Graph <http://exploreat.adaptcentre.ie/Question_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
                         } 
-                     """)
+                         """
+                     )
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
-        # if request.accepted_renderer.format == 'html':
-        #     # TemplateHTMLRenderer takes a context dict,
-        #     # and additionally requires a 'template_name'.
-        #     # It does not require serialization.
-        #     return Response(results, template_name='question.html')
         return Response(results)
 class DetailedPaperSlipRecordView(APIView):
     def get(self, request,pk):
@@ -351,13 +381,34 @@ class DetailedPaperSlipRecordView(APIView):
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
-        # if request.accepted_renderer.format == 'html':
-        #     # TemplateHTMLRenderer takes a context dict,
-        #     # and additionally requires a 'template_name'.
-        #     # It does not require serialization.
-        #     return Response(results, template_name='question.html')
         return Response(results)
+class DetailedPaperSlipRecordViewLimit(APIView):
+    def get(self, request,limit,offset):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) < 124301:  #set the offset to 1
+            offset= int(offset)+124301
 
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/PaperSlipRecord/'+str(i)+">,"
+        uris=uris[:-1]
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
+
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/PaperSlipRecord_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
+                        } 
+                         """
+                     )
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
 class DetailedLemmaView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
@@ -373,14 +424,34 @@ class DetailedLemmaView(APIView):
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
-        # if request.accepted_renderer.format == 'html':
-        #     # TemplateHTMLRenderer takes a context dict,
-        #     # and additionally requires a 'template_name'.
-        #     # It does not require serialization.
-        #     return Response(results, template_name='question.html')
         return Response(results)
 
+class DetailedLemmaViewLimit(APIView):
+    def get(self, request,limit,offset):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) <= 0:  #set the offset to 1
+            offset=1
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/Lemma/'+str(i)+">,"
+        uris=uris[:-1]
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/Lemma_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/Lemma_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
+                        } 
+                         """
+                     )
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
 class DetailedSourceView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
@@ -396,13 +467,33 @@ class DetailedSourceView(APIView):
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
-        # if request.accepted_renderer.format == 'html':
-        #     # TemplateHTMLRenderer takes a context dict,
-        #     # and additionally requires a 'template_name'.
-        #     # It does not require serialization.
-        #     return Response(results, template_name='question.html')
         return Response(results)
+class DetailedSourceViewLimit(APIView):
+    def get(self, request,limit,offset):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) <= 0:  #set the offset to 1
+            offset=1
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/Source/'+str(i)+">,"
+        uris=uris[:-1]
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/Source_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/Source_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
+                        } 
+                         """
+                     )
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
 class DetailedPaperSlipView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
@@ -418,13 +509,34 @@ class DetailedPaperSlipView(APIView):
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
-        # if request.accepted_renderer.format == 'html':
-        #     # TemplateHTMLRenderer takes a context dict,
-        #     # and additionally requires a 'template_name'.
-        #     # It does not require serialization.
-        #     return Response(results, template_name='question.html')
         return Response(results)
+class DetailedPaperSlipViewLimit(APIView):
+    def get(self, request,limit,offset):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) <= 0:  #set the offset to 1
+            offset=1
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/PaperSlip/'+str(i)+">,"
+        uris=uris[:-1]
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/PaperSlip_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/PaperSlip_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
+                        } 
+                         """
+                     )
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+    
 class DetailedMultimediaView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
@@ -440,14 +552,35 @@ class DetailedMultimediaView(APIView):
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
-        # if request.accepted_renderer.format == 'html':
-        #     # TemplateHTMLRenderer takes a context dict,
-        #     # and additionally requires a 'template_name'.
-        #     # It does not require serialization.
-        #     return Response(results, template_name='question.html')
         return Response(results)
 
+class DetailedMultimediaViewLimit(APIView):
+    def get(self, request,limit,offset):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) <= 0:  #set the offset to 1
+            offset=1
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/Multimedia/'+str(i)+">,"
+        uris=uris[:-1]
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/Multimedia_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/Multimedia_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
+                        } 
+                         """
+                     )
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+    
 class DetailedPersonView(APIView):
     def get(self, request,pk):
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
@@ -463,13 +596,38 @@ class DetailedPersonView(APIView):
                      """)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
-        # if request.accepted_renderer.format == 'html':
-        #     # TemplateHTMLRenderer takes a context dict,
-        #     # and additionally requires a 'template_name'.
-        #     # It does not require serialization.
-        #     return Response(results, template_name='question.html')
         return Response(results)
+    
+    
+class DetailedPersonViewLimit(APIView):
+    def get(self, request,limit,offset):
+        # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
+        if int(limit) > 100:  #Set the max Limit to 100
+            limit=100
+        if int(offset) <7259:  #set the offset to 1
+            offset=int(offset)+7259
+        uris=''
+        for i in range(int(offset),int(limit)+int(offset)):
+            uris+='<http://exploreat.adaptcentre.ie/Person/'+str(i)+">,"
+        uris=uris[:-1]
+        sparql = SPARQLWrapper(dataset)
+        sparql.setQuery("""
 
+                        SELECT *
+                        From named <http://exploreat.adaptcentre.ie/Person_graph>
+                        WHERE {
+                        Graph <http://exploreat.adaptcentre.ie/Person_graph> {?s ?p ?o}
+                        Filter (?s IN(""" + uris +"""                       
+                        ))
+                        } 
+                         """
+                     )
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return Response(results)
+    
+    
+    
 
 class LemmaSortCode(APIView):
     def get(self, request,entry):
