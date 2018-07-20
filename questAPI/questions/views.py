@@ -398,6 +398,10 @@ class DetailedPersonView(APIView):
 # ===================================================
 class DetailedQuestionnaireViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
@@ -427,6 +431,10 @@ class DetailedQuestionnaireViewLimit(APIView):
 
 class DetailedQuestionViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
@@ -456,6 +464,10 @@ class DetailedQuestionViewLimit(APIView):
 
 class DetailedPaperSlipRecordViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
@@ -484,6 +496,10 @@ class DetailedPaperSlipRecordViewLimit(APIView):
         return Response(results)
 class DetailedLemmaViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
@@ -512,6 +528,10 @@ class DetailedLemmaViewLimit(APIView):
         return Response(results)
 class DetailedSourceViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
@@ -541,6 +561,10 @@ class DetailedSourceViewLimit(APIView):
 
 class DetailedPaperSlipViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
@@ -569,6 +593,10 @@ class DetailedPaperSlipViewLimit(APIView):
         return Response(results)
 class DetailedMultimediaViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
@@ -597,6 +625,10 @@ class DetailedMultimediaViewLimit(APIView):
         return Response(results)
 class DetailedPersonViewLimit(APIView):
     def get(self, request,limit,offset):
+        if limit>100:
+            limit=100
+        if offset<0:
+            offset=0
         # the query will strip the questionnaire number and replace http://localhost/oldca/fragebogen/1 in the query
         sparql = SPARQLWrapper(dataset)
         sparql.setQuery("""
