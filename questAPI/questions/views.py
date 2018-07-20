@@ -419,8 +419,8 @@ class DetailedQuestionnaireViewLimit(APIView):
                                      {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://explorations4u.acdh.oeaw.ac.at/ontology/oldcan#Questionnaire>}.
                                  }
                                 order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/Questionnaire/","")),">","")))
-                                Limit""" + limit + """
-                                OFFSET""" + offset + """
+                                Limit""" + str(limit)  + """
+                                OFFSET""" + str(offset) + """
                                 }  
                         }
                          """
@@ -452,8 +452,8 @@ class DetailedQuestionViewLimit(APIView):
                                              {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://explorations4u.acdh.oeaw.ac.at/ontology/oldcan#Question>}.
                                          }
                                         order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/Question/","")),">","")))
-                                        Limit""" + limit + """
-                                        OFFSET""" + offset + """
+                                        Limit""" + str(limit)  + """
+                                        OFFSET""" + str(offset) + """
                                         }  
                                 }
                                  """
@@ -485,8 +485,8 @@ class DetailedPaperSlipRecordViewLimit(APIView):
                                              {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://explorations4u.acdh.oeaw.ac.at/ontology/oldcan#PaperSlipRecord>}.
                                          }
                                         order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/PaperSlipRecord/","")),">","")))
-                                        Limit""" + limit + """
-                                        OFFSET""" + offset + """
+                                        Limit""" + str(limit) + """
+                                        OFFSET""" + str(offset) + """
                                         }  
                                 }
                                  """
@@ -517,8 +517,8 @@ class DetailedLemmaViewLimit(APIView):
                                              {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://explorations4u.acdh.oeaw.ac.at/ontology/oldcan#Lemma>}.   
                                          }
                                         order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/Lemma/","")),">","")))
-                                        Limit""" + limit + """
-                                        OFFSET""" + offset + """
+                                        Limit""" + str(limit) + """
+                                        OFFSET""" + str(offset) + """
                                         }  
                                 }
                                  """
@@ -549,8 +549,8 @@ class DetailedSourceViewLimit(APIView):
                                             {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://explorations4u.acdh.oeaw.ac.at/ontology/oldcan#Source>}.
                                          }
                                         order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/Source/","")),">","")))
-                                        Limit""" + limit + """
-                                        OFFSET""" + offset + """
+                                        Limit""" + str(limit)  + """
+                                        OFFSET""" + str(offset) + """
                                         }  
                                 }
                                  """
@@ -582,8 +582,8 @@ class DetailedPaperSlipViewLimit(APIView):
                                              {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://explorations4u.acdh.oeaw.ac.at/ontology/oldcan#PaperSlip>}.
                                          }
                                         order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/PaperSlip/","")),">","")))
-                                        Limit""" + limit + """
-                                        OFFSET""" + offset + """
+                                        Limit""" + str(limit)  + """
+                                        OFFSET""" + str(offset) + """
                                         }  
                                 }
                                  """
@@ -614,8 +614,8 @@ class DetailedMultimediaViewLimit(APIView):
                                              {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://explorations4u.acdh.oeaw.ac.at/ontology/oldcan#Multimedia>}.
                                          }
                                         order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/Multimedia/","")),">","")))
-                                        Limit""" + limit + """
-                                        OFFSET""" + offset + """
+                                        Limit""" + str(limit)  + """
+                                        OFFSET""" + str(offset) + """
                                         }  
                                 }
                                  """
@@ -647,8 +647,8 @@ class DetailedPersonViewLimit(APIView):
 
                                          }
                                         order by asc(xsd:integer(replace(str(replace(str(?s),"http://exploreat.adaptcentre.ie/Person/","")),">","")))
-                                        Limit""" + limit + """
-                                        OFFSET""" + offset + """
+                                        Limit""" + str(limit) + """
+                                        OFFSET""" + str(offset) + """
                                         }  
                                 }
                                  """
